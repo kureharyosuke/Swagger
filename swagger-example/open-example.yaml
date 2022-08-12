@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: OPENAPITITLE
+  description: "Swagger 실습을 위한 API Example "
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/OHHAYOCOM/OPENAPINAME/1.0.0
+  - description: JSON Placeholder API
+    url: https://jsonplaceholder.typicode.com
+  - description: Google API
+    url: https://www.google.com
+paths:
+  # JSON Placeholder
+  /todos/{id}:
+    get:
+      summary: Returns a user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the user to return
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userid:
+                    type: integer
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  completed:
+                    type: boolean
+  # Google Search
+  /complete/search:
+    get:
+      summary: 자동완성 검색 결과를 반환한다.
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+        - name: client
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A Text File
+          content:
+            text:plain:
+              schema:
+                type: string
