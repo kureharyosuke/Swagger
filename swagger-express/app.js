@@ -7,6 +7,15 @@ module.exports = app; // for testing
 
 var config = {
   appRoot: __dirname, // required config
+  swaggerSecurityHandlers: {
+    api_key: function (req, authOrSecDef, scopesOrApiKey, cb) {
+      if ("my_key" === scopesOrApiKey) {
+        cb();
+      } else {
+        cb(new Error("Access Denied!"));
+      }
+    },
+  },
 };
 
 SwaggerExpress.create(config, function (err, swaggerExpress) {

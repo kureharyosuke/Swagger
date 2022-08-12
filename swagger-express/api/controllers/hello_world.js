@@ -26,6 +26,7 @@ var util = require("util");
  */
 module.exports = {
   hello: hello,
+  adder,
 };
 
 /*
@@ -35,10 +36,18 @@ module.exports = {
   Param 2: a handle to the response object
  */
 function hello(req, res) {
+  console.log("🚀 ~ file: hello_world.js ~ line 38 ~ hello ~ req", req);
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var name = req.swagger.params.name.value || "stranger";
   var hello = util.format("Hello, %s!", name);
 
   // this sends back a JSON response which is a single string
   res.json(hello);
+}
+
+function adder(req, res) {
+  let one = req.query.one;
+  let two = req.query.two;
+  let result = Number(one) + Number(two);
+  res.json(String(result));
 }
