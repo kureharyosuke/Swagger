@@ -3,3 +3,30 @@ info:
   version: "1.0.0"
   title: "yunseok api"
   description: "yunseok swagger api"
+servers:
+  - description: local api
+    url: http://localhost:3000/
+  - description: google api
+    url: https://www.google.com
+paths:
+  /adder:
+    get:
+      summary: Adder API
+      parameters:
+        - name: one
+          in: query
+          description: First Number Value
+          required: true
+          schemas:
+            type: integer
+        - name: two
+          in: query
+          description: Second Number Value
+          required: true
+          schema:
+            type: integer
+  responses:
+    "200":
+      description: Added result
+      schemas:
+        type: integer
