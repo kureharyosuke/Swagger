@@ -15,7 +15,11 @@
  *            type: integer
  *            description: 카테고리
  *      responses:
- *       200:
- *        description: 제품 조회 성공
+ *        200:
+ *          description: 제품 조회 성공
+ *          schema:
+ *            type: array
+ *            items:
+ *            $ref: '#/components/schemas/Product'
  */
 router.get("/", getList);
