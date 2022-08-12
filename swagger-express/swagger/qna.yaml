@@ -1,0 +1,127 @@
+# Q&A API
+
+# getSpecificQna API
+components:
+  schemas:
+    getSpecificQna:
+      type: object
+      required: status
+        success
+        message
+        data
+      properties:
+        status:
+          type: integer
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            question:
+              type: object
+              properties:
+                qnaIdx:
+                  type: integer
+                title:
+                  type: string
+                content:
+                  type: string
+                likeCount:
+                  type: integer
+                commentCount:
+                  type: integer
+                createAt:
+                  type: string
+                category:
+                  type: string
+                userIdx:
+                  type: integer
+                nickname:
+                  type: string
+                profileImage:
+                  type: string
+                alarmOn:
+                  type: boolean
+                initial:
+                  type: string
+                isLike:
+                  type: boolean
+                images:
+                  type: array
+                  items:
+                    type: string
+                tags:
+                  type: array
+                  items:
+                    type: array
+                    properties:
+                      tagIdx:
+                        type: integer
+                      tagName:
+                        type: string
+                      initial:
+                        type: string
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      qnaCommentIdx:
+                        type: integer
+                      content:
+                        type: string
+                      createAt:
+                        type: string
+                      isDeleted:
+                        type: boolean
+                      userIdx:
+                        type: integer
+                      nickname:
+                        type: string
+                      profileImage:
+                        type: string
+                      initial:
+                        type: string
+                      isMine:
+                        type: boolean
+                      isQuestioner:
+                        type: boolean
+                isMine:
+                  type: boolean
+            answer:
+              type: array
+              items:
+                type: object
+                properties:
+                  qnaAnswerIdx:
+                    type: integer
+                  content:
+                    type: string
+                  likeCount:
+                    type: integer
+                  commentCount:
+                    type: integer
+                  selected:
+                    type: boolean
+                  nickname:
+                    type: string
+                  profileImage:
+                    type: string
+                  userIdx:
+                    type: integer
+                  isMine:
+                    type: boolean
+                  initial:
+                    type: string
+                  rank:
+                    type: integer
+                  images:
+                    type: array
+                    items:
+                      type: string
+                  isLike:
+                    type: boolean
+                  category:
+                    type: integer
